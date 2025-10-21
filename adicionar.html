@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Tarefa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mobile-container">
+    <header class="app-header">
+      <a href="inicial.html" class="header-btn">←</a>
+      <h1>Criar / Editar Tarefas</h1>
+      <span style="width: 40px;"></span>
+    </header>
+
+    <main>
+      <form id="task-form" class="task-form">
+        <div>
+          <label for="priority">Definir Prioridade</label>
+          <select id="priority" name="priority">
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="task-name">Nome da Tarefa</label>
+          <div class="input-group">
+            <span id="priority-indicator" class="priority-indicator"></span>
+            <input type="text" id="task-name" placeholder="Ex: Levar o cachorro para passear" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="task-description">Descrição da Tarefa</label>
+          <textarea id="task-description" placeholder="Adicione detalhes sobre esta tarefa..."></textarea>
+        </div>
+
+        <div>
+          <label for="task-time">Hora</label>
+          <input type="time" id="task-time">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-save">Salvar</button>
+          <a href="inicial.html" class="btn btn-cancel">Cancelar</a>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

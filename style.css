@@ -1,0 +1,429 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --primary-blue: #007bff;
+    --light-blue: #e0f0ff;
+    --header-green: #d4f8e8;
+    --save-btn-bg: #e0f8f0;
+    --save-btn-border: #4caf50;
+    --cancel-btn-bg: #fde0e0;
+    --cancel-btn-border: #f44336;
+    --text-color: #333;
+    --border-color: #ccc;
+    --checked-green: #28a745;
+    --pending-red: #dc3545;
+    --white: #fff;
+    --chart-complete: #005cbf;
+    --chart-pending: #ffc107;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    width: 375px;
+    height: 812px;
+    background-color: var(--white);
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 12px solid #333;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* --- Tela de Login --- */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    height: 100%;
+}
+
+.login-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--light-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    font-size: 60px;
+    color: var(--primary-blue);
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que padding não afete a largura */
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #6a5acd; /* Roxo do protótipo */
+    color: var(--white);
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* --- Cabeçalho Comum --- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--light-blue);
+    flex-shrink: 0; /* Impede que o header encolha */
+}
+
+.app-header.progress-header {
+    background-color: var(--header-green);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-blue);
+    padding: 5px;
+    text-decoration: none;
+}
+
+/* --- Conteúdo Principal --- */
+main {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* --- Lista de Tarefas --- */
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.task-item .status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    margin-right: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--white);
+    border: 2px solid var(--border-color);
+}
+
+.task-item[data-status="completed"] .status-icon {
+    background-color: var(--checked-green);
+    border-color: var(--checked-green);
+}
+
+.task-item .task-name {
+    flex-grow: 1;
+    color: var(--text-color);
+}
+
+/* --- Tela Adicionar Tarefa --- */
+.task-form label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.task-form input, .task-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.task-form .input-group {
+    position: relative;
+}
+
+.priority-indicator {
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 25px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+.task-form .form-actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 15px;
+    border: 2px solid;
+    border-radius: 30px;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-save {
+    background-color: var(--save-btn-bg);
+    border-color: var(--save-btn-border);
+    color: var(--save-btn-border);
+}
+
+.btn-cancel {
+    background-color: var(--cancel-btn-bg);
+    border-color: var(--cancel-btn-border);
+    color: var(--cancel-btn-border);
+}
+
+/* --- Tela de Progresso --- */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.pie-chart {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: conic-gradient(var(--chart-pending) 0% 100%); /* Padrão */
+}
+
+.progress-stats {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.stat-item .icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.stat-item .icon.complete {
+    color: var(--checked-green);
+}
+
+.stat-item .icon.pending {
+    color: var(--pending-red);
+}
+.status-dropdown {
+  margin-left: 10px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--light-blue);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+/* Quadrado de prioridade */
+.priority-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Dropdown de status */
+.status-dropdown {
+  margin-left: auto;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+/* Estilo adicional pra alinhar os itens */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* --- CORREÇÕES NECESSÁRIAS --- */
+
+/* Exibir horário na lista de tarefas */
+.task-time {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0 10px;
+}
+
+/* Ajuste no alinhamento dos itens da tarefa para incluir o horário */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+    gap: 10px;
+}
+
+/* Garantir que o nome da tarefa ocupe o espaço adequado */
+.task-name {
+    flex-grow: 1;
+    margin: 0;
+}
+
+/* Ajustes no dropdown de status para cores */
+.status-dropdown {
+    margin-left: auto;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: white;
+    min-width: 110px;
+    text-align: center;
+}
+
+/* Melhorar o gráfico de pizza */
+.pie-chart {
+    background: conic-gradient(#007bff 0% 0%, #e9ecef 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pie-chart::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+}
+/* Botão de excluir */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+/* Efeito de hover no nome da tarefa */
+.task-name:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+/* --- FUNCIONALIDADES DE EDITAR E EXCLUIR --- */
+
+/* Botão de excluir minimalista */
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #dc3545;
+  padding: 0 8px;
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Conteúdo da tarefa clicável */
+.task-content {
+  flex: 1;
+  padding: 5px 0;
+}
+
+.task-content:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 4px;
+}
+
+/* Melhorar alinhamento dos itens */
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  gap: 10px;
+}
+
+/* Ajuste no dropdown para espaço do botão excluir */
+.status-dropdown {
+  margin-left: auto;
+}
